@@ -84,11 +84,11 @@
         </ul>
         <div style="clear:both; height:10px"></div>
       </div>-->
-      <li class="ranking-highest__item ranking-highest__item--big">
+      <li class="ranking-highest__item ranking-highest__item--big" v-if="podium[0]">
         <div class="ranking-highest__rank">1</div>
-        <img src="../assets/img/active.png" class="ranking-highest__image" onerror="this.src='//opgg-static.akamaized.net/images/profile_icons/profileIcondefault.jpg';">
-        <a @click="jumpto(94)" class="ranking-highest__name">School of Information Systems, Singapore Management University, Singapore</a>
-        <div class="ranknumbox2">🔥4037</div>
+        <img src="../assets/img/active.png" class="ranking-highest__image">
+        <a @click="jumpto(podium[0].id)" class="ranking-highest__name--small">{{podium[0].name}}</a>
+        <div class="ranknumbox2">🔥{{podium[0].rank}}</div>
         <div class="ranking-highest__parameter">
           <div class="ranking-highest__heat">PAPER:   24</div>
           <div class="ranking-highest__heat">AUTHOR:   20</div>
@@ -96,24 +96,24 @@
         </div>
       </li>
       <div>
-        <li class="ranking-highest__item">
+        <li class="ranking-highest__item" v-if="podium[1]">
           <div class="ranking-highest__rank">2</div>
-          <a @click="jumpto(1088)" class="ranking-highest__name--small">Nanyang Technological University, Singapore</a>
-          <div class="ranknumbox2">🔥3873</div>
-          <div class="ranking-highest__heat--small">PAPER:   18</div>
-          <div class="ranking-highest__heat--small">AUTHOR:   17</div>
-          <div class="ranking-highest__heat--small">CITATION:   831</div>
+          <a @click="jumpto(podium[1].id)" class="ranking-highest__name--small">{{podium[1].name}}</a>
+          <div class="ranknumbox2">🔥{{podium[1].rank}}</div>
+          <div class="ranking-highest__heat--small">PAPER:   61</div>
+          <div class="ranking-highest__heat--small">AUTHOR:   46</div>
+          <div class="ranking-highest__heat--small">CITATION:   1764</div>
           <div class="ranking-highest__parameter--small">
 
           </div>
         </li>
-        <li class="ranking-highest__item">
+        <li class="ranking-highest__item" v-if="podium[2]">
           <div class="ranking-highest__rank">3</div>
-          <a @click="jumpto(590)" class="ranking-highest__name--small">University of Passau, Germany</a>
-          <div class="ranknumbox2">🔥3859</div>
-          <div class="ranking-highest__heat--small">PAPER:   16</div>
-          <div class="ranking-highest__heat--small">AUTHOR:   18</div>
-          <div class="ranking-highest__heat--small">CITATION:   505</div>
+          <a @click="jumpto(podium[2].id)" class="ranking-highest__name--small">{{podium[2].name}}</a>
+          <div class="ranknumbox2">🔥{{podium[2].rank}}</div>
+          <div class="ranking-highest__heat--small">PAPER:   78</div>
+          <div class="ranking-highest__heat--small">AUTHOR:   70</div>
+          <div class="ranking-highest__heat--small">CITATION:   2545</div>
           <div class="ranking-highest__parameter--small">
 
           </div>
@@ -171,23 +171,7 @@
         message11: 1,
         message12: 1,
         message13: 1,
-        columns: [
-          {
-            title: 'Rank',
-            dataIndex: 'rank',
-            key: 'rank',
-          },
-          {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-          },
-          {
-            title: 'ID',
-            dataIndex: 'id',
-            key: 'id',
-          },
-        ],
+
         items: [
           //     {
           //     rank:'0.1',
@@ -248,7 +232,7 @@
           //     id:59
           // },
         ],
-        affiliations:[
+        podium:[
 
         ],
       }
@@ -275,11 +259,10 @@
       }).then(function (response) {
         console.log(response.data.data)
         that.items = response.data.data
+        that.podium[0] = that.items[0]
+        that.podium[1] = that.items[1]
+        that.podium[2] = that.items[2]
         that.items = that.items.slice(3)
-        for (var i = 3; i < that.items.length; i ++) {
-          that.affiliations[i - 3] = that.items[i];
-          console.log(that.affiliations[i-3]);
-        }
       }).catch(function (error) {
         console.log('get affliation  rank失败!!')
         console.log(error)
@@ -731,7 +714,6 @@
     display: inline-block;
     width: 120px;
     height: 120px;
-    margin-top: -80px;
     border-radius: 50%;
   }
 

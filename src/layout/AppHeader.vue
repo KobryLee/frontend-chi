@@ -47,17 +47,50 @@
             </router-link>
           </div>
         </base-dropdown>
-        <base-dropdown tag="li" class="nav-item">
+
+        <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
           <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">
-                <span>Rank System</span>
-            </span>
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Rank System</span>
           </a>
+          <div class="dropdown-menu-inner">
+            <router-link to="/rankSystem1"
+                         class="media d-flex align-items-center">
+              <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                <i class="ni ni-shop"></i>
+              </div>
+              <div class="media-body ml-3">
+                <h6 class="heading text-primary mb-md-1">Affiliation rank</h6>
+                <p class="description d-none d-md-inline-block mb-0">Get the affiliation rank system</p>
+              </div>
+            </router-link>
+            <router-link to="/rankSystem2"
+                         class="media d-flex align-items-center">
+              <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                <i class="ni ni-circle-08"></i>
+              </div>
+              <div class="media-body ml-3">
+                <h5 class="heading text-warning mb-md-1">Author rank</h5>
+                <p class="description d-none d-md-inline-block mb-0">Get the author rank system</p>
+              </div>
+            </router-link>
+            <router-link to="/rankSystem3"
+                         class="media d-flex align-items-center">
+              <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                <i class="ni ni-tag"></i>
+              </div>
+              <div class="media-body ml-3">
+                <h5 class="heading text-success mb-md-1">Keyword rank</h5>
+                <p class="description d-none d-md-inline-block mb-0">Get the keyword rank system</p>
+              </div>
+            </router-link>
+          </div>
+        </base-dropdown>
+        <!--<base-dropdown tag="li" class="nav-item">
           <router-link to="/rankSystem1" class="dropdown-item"><span>Afflication rank</span></router-link>
           <router-link to="/rankSystem2" class="dropdown-item"><span>Author rank</span></router-link>
           <router-link to="/rankSystem3" class="dropdown-item"><span>Keyword rank</span></router-link>
-        </base-dropdown>
+        </base-dropdown>-->
         <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
           <i class="ni ni ni-compass-04 d-lg-none"></i>
           <span class="nav-link-inner--text">

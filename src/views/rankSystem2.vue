@@ -3,7 +3,7 @@
     <div style="height:80px;background-color:#8965E0"></div>
     <div class="rankBox">
 
-      <div v-if="affrank" class="rua-filter">
+      <!--<div v-if="affrank" class="rua-filter">
 
 
         <div style="clear:both"></div>
@@ -19,11 +19,11 @@
         <button @click="change(4)" class="btn2">recent 1 year paper number</button>
         <input v-model="message6" style="width:25px">
         <button @click="change(5)" class="btn2">recent 3 year paper number</button>
-        <!-- <span style="width:40px"></span> -->
+        &lt;!&ndash; <span style="width:40px"></span> &ndash;&gt;
         <button @click="customsend(0)" class="btn" style="float:right">custom</button>
       </div>
       <div v-if="authorrank" class="rua-filter">
-        <!-- <a href="javascript: ;" class="filtera" @click="change(0)">
+        &lt;!&ndash; <a href="javascript: ;" class="filtera" @click="change(0)">
             <span>Activation</span>
         </a>
         <a href="javascript: ;"  class="filtera" @click="change(1)">
@@ -34,7 +34,7 @@
         </a>
         <a href="javascript: ;"  class="filtera" @click="change(3)">
             <span>Reference</span>
-        </a> -->
+        </a> &ndash;&gt;
         <div style="clear:both"></div>
         <input v-model="message7" style="width:25px" class="in" id="in1">
         <button @click="change(0)" class="btn">Activation</button>
@@ -44,11 +44,11 @@
         <button @click="change(2)" class="btn">PublicationNum</button>
         <input v-model="message10" style="width:25px" class="in" id="in4">
         <button @click="change(3)" class="btn">Reference</button>
-        <!-- <span style="width:40px"></span> -->
+        &lt;!&ndash; <span style="width:40px"></span> &ndash;&gt;
         <button @click="customsend(1)" class="btn3" style="float:right">custom</button>
       </div>
       <div v-if="keyrank" class="rua-filter">
-        <!-- <a href="javascript: ;" class="filtera" @click="change(0)">
+        &lt;!&ndash; <a href="javascript: ;" class="filtera" @click="change(0)">
             <span>Activation</span>
         </a>
         <a href="javascript: ;"  class="filtera" @click="change(1)">
@@ -56,7 +56,7 @@
         </a>
         <a href="javascript: ;"  class="filtera" @click="change(2)">
             <span>ArticleNum</span>
-        </a> -->
+        </a> &ndash;&gt;
         <div style="clear:both"></div>
         <input v-model="message11" style="width:25px">
         <span @click="change(0)">Activation</span>
@@ -64,15 +64,73 @@
         <span @click="change(1)">Reference</span>
         <input v-model="message13" style="width:25px">
         <span @click="change(2)">ArticleNum</span>
-        <!-- <span style="width:40px"></span> -->
+        &lt;!&ndash; <span style="width:40px"></span> &ndash;&gt;
         <button @click="customsend(2)" class="btn3">custom</button>
+      </div>-->
+      <li class="ranking-highest__item ranking-highest__item--big" v-if="podium[0]">
+        <div class="ranking-highest__rank">1</div>
+        <img src="../assets/img/active.png" class="ranking-highest__image">
+        <a @click="jumpto(podium[0].id)" class="ranking-highest__name--small">{{podium[0].name}}</a>
+        <div class="ranknumbox2">🔥{{podium[0].rank}}</div>
+        <div class="ranking-highest__parameter">
+          <div class="ranking-highest__heat">PAPER:   24</div>
+          <div class="ranking-highest__heat">AUTHOR:   20</div>
+          <div class="ranking-highest__heat">CITATION:   846</div>
+        </div>
+      </li>
+      <div>
+        <li class="ranking-highest__item" v-if="podium[1]">
+          <div class="ranking-highest__rank">2</div>
+          <a @click="jumpto(podium[1].id)" class="ranking-highest__name--small">{{podium[1].name}}</a>
+          <div class="ranknumbox2">🔥{{podium[1].rank}}</div>
+          <div class="ranking-highest__heat--small">PAPER:   61</div>
+          <div class="ranking-highest__heat--small">AUTHOR:   46</div>
+          <div class="ranking-highest__heat--small">CITATION:   1764</div>
+          <div class="ranking-highest__parameter--small">
+
+          </div>
+        </li>
+        <li class="ranking-highest__item" v-if="podium[2]">
+          <div class="ranking-highest__rank">3</div>
+          <a @click="jumpto(podium[2].id)" class="ranking-highest__name--small">{{podium[2].name}}</a>
+          <div class="ranknumbox2">🔥{{podium[2].rank}}</div>
+          <div class="ranking-highest__heat--small">PAPER:   78</div>
+          <div class="ranking-highest__heat--small">AUTHOR:   70</div>
+          <div class="ranking-highest__heat--small">CITATION:   2545</div>
+          <div class="ranking-highest__parameter--small">
+
+          </div>
+        </li>
       </div>
-      <div class="resultBox">
-        <!-- <h1></h1> -->
+
+      <table class="ranking-table">
+        <colgroup>
+          <col width="100">
+          <col width="400">
+          <col width="100">
+        </colgroup>
+        <thead>
+        <tr>
+          <th class="ranking-table__header"></th>
+          <th class="ranking-table__header">NAME</th>
+          <th class="ranking-table__header">HEAT</th>
+        </tr>
+        </thead>
+        <tbody id="contain" v-for="(item,index) in items" :key="item.id">
+        <tr @click="jumpto(item.id)">
+          <td class="ranking-table__cell ranking-table__cell--rank">{{index+4}}</td>
+          <td class="ranking-table__cell ranking-table__cell--name">{{item.name}}</td>
+          <td class="ranking-table__cell ranking-table__cell--heat">🔥{{item.rank}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!--<div class="resultBox">
+        &lt;!&ndash; <h1></h1> &ndash;&gt;
         <ul>
           <li v-for="(item,index) in items" :key="item.id">
             <div class="card" @click="jumpto(item.id)">
-              <!-- 排名牌 -->
+              &lt;!&ndash; 排名牌 &ndash;&gt;
 
               <span class="ranknumbox">{{index+1}}</span>
               <div class="ranknumbox2">🔥{{item.rank}}</div>
@@ -83,7 +141,7 @@
           </li>
         </ul>
         <div style="clear:both; height:10px"></div>
-      </div>
+      </div>-->
     </div>
 
   </div>
@@ -172,7 +230,10 @@
           //     name:'nanjing',
           //     id:59
           // },
-        ]
+        ],
+        podium:[
+
+        ],
       }
     },
     mounted () {
@@ -196,6 +257,10 @@
       }).then(function (response) {
         console.log(response.data.data)
         that.items = response.data.data
+        that.podium[0] = that.items[0]
+        that.podium[1] = that.items[1]
+        that.podium[2] = that.items[2]
+        that.items = that.items.slice(3)
       }).catch(function (error) {
         console.log('get affliation  rank失败!!')
         console.log(error)
@@ -575,11 +640,174 @@
     width: 80px;
     height: 30px;
     line-height: 30px;
+    font-size: 20px;
     color: black;
     /* background-color: #8965E0; */
     border-radius: 7px;
     right: 0;;
     top: 0;
+  }
+
+  .ranking-highest__item {
+    position: relative;
+    display: inline-block;
+    padding: 14px 18px;
+    border: 2px solid #bdbbbb;
+    border-width: 5px;
+    height: 200px;
+    width: 400px;
+    background: #fff;
+    box-sizing: border-box;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 80px;
+    vertical-align: middle;
+  }
+
+  .ranking-highest__item--big {
+    display: block;
+    width: 650px;
+    margin: 20px auto;
+    padding: 35px 40px;
+  }
+
+  .ranking-highest__item.ranking-highest__item--big .ranking-highest__rank {
+    margin-top: -5px;
+    margin-left: -5px;
+  }
+
+  .ranking-highest__item .ranking-highest__rank {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -2px;
+    margin-left: -2px;
+    display:inline-block;
+  }
+  .ranking-highest__rank {
+    width: 30px;
+    background: #bdbbbb;
+    padding: 3px 0;
+    line-height: 24px;
+    font-family: Helvetica,AppleSDGothic,"Apple SD Gothic Neo",AppleGothic,Arial,Tahoma;
+    font-size: 21px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .ranking-highest__image {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .ranking-highest__item--big .ranking-highest__name {
+    display: inline-block;
+    line-height: 24px;
+    font-size: 20px;
+    color: #242929;
+    margin-left: 30px;
+    margin-top: 20px;
+    white-space:normal;
+    width: 250px;
+  }
+
+  .ranking-highest__name {
+    display: inline-block;
+    margin-top: 5px;
+    line-height: 17px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #444b4b;
+  }
+
+  .ranking-highest__name--small {
+    display: inline-block;
+    width:250px;
+    margin-top: 20px;
+    margin-left: 15px;
+    line-height: 17px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5em;
+    color: #444b4b;
+  }
+
+  .ranking-highest__parameter {
+    position: absolute;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+  .ranking-highest__parameter--small {
+    display: inline-block;
+  }
+
+  .ranking-highest__heat {
+    white-space: pre;
+    font-family: Helvetica, Arial, "Microsoft YaHei New", "Microsoft Yahei", 微软雅黑, 华文细黑, sans-serif;
+    font-size: 20px;
+    color: #787878;
+  }
+
+  .ranking-highest__heat--small {
+    margin-top: 5px;
+    margin-left: 15px;
+    vertical-align:text-top;
+    font-family: Helvetica,AppleSDGothic,"Apple SD Gothic Neo",AppleGothic,Arial,Tahoma;
+    font-size: 15px;
+    color: #787878;
+  }
+
+  .ranking-table {
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ededed;
+    border: solid 1px #cdd2d2;
+    margin-top: 20px;
+  }
+
+  .ranking-table__header {
+    height: 41px;
+    padding: 0;
+    border-bottom: 1px solid #cdd2d2;
+    background: #f2f2f2;
+    line-height: 17px;
+    font-size: 14px;
+    text-align: left;
+    color: #444b4b;
+    font-weight: normal;
+  }
+
+  tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+
+  .ranking-table__cell {
+    border-bottom: 1px solid #cdd2d2;
+    height: 54px;
+    line-height: 16px;
+    font-family: Helvetica,AppleSDGothic,"Apple SD Gothic Neo",AppleGothic,Arial,Tahoma;
+    font-size: 14px;
+  }
+
+  .ranking-table__cell--rank {
+    text-align: center;
+    color: #444b4b;
+  }
+
+  .ranking-table__cell--name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ranking-table__cell--heat {
+    color: #787878;
   }
 
   .cardname p {

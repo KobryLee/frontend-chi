@@ -145,7 +145,7 @@
               </div>
               <hr>
               <p>Abstract:</p>
-              <div><p>{{paper.docAbstract}}</p>
+              <div><p>{{paper.docAbstract.slice(0,500)}}...</p>
                 <p style="font-size:30px;color:#2688BE">citations({{paper.refs}})</p></div>
               <!-- <div style="float:right;margin:10px 50px 20px auto;font-size:20px;color:grey;border: 1px solid black">
                 <p>citations({{paper.refs}})</p>
@@ -303,7 +303,7 @@
             return
           }
         }
-        this.$axios.post('http://47.100.55.51:3180/search/item', {
+        this.$axios.post('http://159.75.17.236:3180/search/item', {
           author: vauthor,
           affiliation: vaffliction,
           publication: vpublication,

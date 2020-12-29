@@ -87,7 +87,7 @@
           })
           return false
         }
-        this.$axios.post('http://47.100.55.51:3180/user/login', {
+        this.$axios.post('http://159.75.17.236:3180/user/login', {
           userName: _this.userName,
           password: _this.password,
           time: _this.timeStamp

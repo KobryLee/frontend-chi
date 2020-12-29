@@ -140,7 +140,7 @@
       register: function () {
         if (this.checkUserName(this.userName) && this.checkEmail(this.email) && this.checkPassword(this.password)) {
           const _this = this
-          this.$axios.post('http://47.100.55.51:3180/user/register', {
+          this.$axios.post('http://159.75.17.236:3180/user/register', {
             userName: this.userName,
             password: this.password,
             email: this.email,

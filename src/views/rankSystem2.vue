@@ -69,13 +69,12 @@
       </div>-->
       <li class="ranking-highest__item ranking-highest__item--big" v-if="podium[0]">
         <div class="ranking-highest__rank">1</div>
-        <img src="../assets/img/active.png" class="ranking-highest__image">
+        <img src="../assets/img/default-avatar.png" class="ranking-highest__image">
         <a @click="jumpto(podium[0].id)" class="ranking-highest__name--small">{{podium[0].name}}</a>
         <div class="ranknumbox2">🔥{{podium[0].rank}}</div>
         <div class="ranking-highest__parameter">
-          <div class="ranking-highest__heat">PAPER:   24</div>
-          <div class="ranking-highest__heat">AUTHOR:   20</div>
-          <div class="ranking-highest__heat">CITATION:   846</div>
+          <div class="ranking-highest__heat">PAPER:   8</div>
+          <div class="ranking-highest__heat">CITATION:   252</div>
         </div>
       </li>
       <div>
@@ -83,9 +82,8 @@
           <div class="ranking-highest__rank">2</div>
           <a @click="jumpto(podium[1].id)" class="ranking-highest__name--small">{{podium[1].name}}</a>
           <div class="ranknumbox2">🔥{{podium[1].rank}}</div>
-          <div class="ranking-highest__heat--small">PAPER:   61</div>
-          <div class="ranking-highest__heat--small">AUTHOR:   46</div>
-          <div class="ranking-highest__heat--small">CITATION:   1764</div>
+          <div class="ranking-highest__heat--small">PAPER:   7</div>
+          <div class="ranking-highest__heat--small">CITATION:   345</div>
           <div class="ranking-highest__parameter--small">
 
           </div>
@@ -94,9 +92,8 @@
           <div class="ranking-highest__rank">3</div>
           <a @click="jumpto(podium[2].id)" class="ranking-highest__name--small">{{podium[2].name}}</a>
           <div class="ranknumbox2">🔥{{podium[2].rank}}</div>
-          <div class="ranking-highest__heat--small">PAPER:   78</div>
-          <div class="ranking-highest__heat--small">AUTHOR:   70</div>
-          <div class="ranking-highest__heat--small">CITATION:   2545</div>
+          <div class="ranking-highest__heat--small">PAPER:   7</div>
+          <div class="ranking-highest__heat--small">CITATION:   262</div>
           <div class="ranking-highest__parameter--small">
 
           </div>
@@ -248,7 +245,7 @@
       // as[0].style.backgroundColor='purple';
       // as[0].style.color='white';
       var that = this
-      that.$axios.get('http://47.100.55.51:3180/rank/getAuthorRank', {
+      that.$axios.get('http://159.75.17.236:3180/rank/getAuthorRank', {
         params:
           {
             rankType: that.type,
@@ -276,7 +273,7 @@
         if (e == 0) {
           let temp = this.message1 + '-' + this.message2 + '-' + this.message3 + '-' + this.message4 + '-' + this.message5 + '-' + this.message6
           console.log(temp)
-          _this.$axios.get('http://47.100.55.51:3180/rank/getAffiliationRank', {
+          _this.$axios.get('http://159.75.17.236:3180/rank/getAffiliationRank', {
             params:
               {
                 rankType: 6,
@@ -303,7 +300,7 @@
             return
           }
           console.log(temp)
-          _this.$axios.get('http://47.100.55.51:3180/rank/getAuthorRank', {
+          _this.$axios.get('http://159.75.17.236:3180/rank/getAuthorRank', {
             params:
               {
                 rankType: 4,
@@ -320,7 +317,7 @@
         if (e == 2) {
           let temp = this.message11 + '-' + this.message12 + '-' + this.message13
           console.log(temp)
-          _this.$axios.get('http://47.100.55.51:3180/rank/getKeywordRank', {
+          _this.$axios.get('http://159.75.17.236:3180/rank/getKeywordRank', {
             params:
               {
                 rankType: 3,
@@ -417,7 +414,7 @@
 
           }
           //发送请求获取到afflication
-          _this.$axios.get('http://47.100.55.51:3180/rank/getAffiliationRank', {
+          _this.$axios.get('http://159.75.17.236:3180/rank/getAffiliationRank', {
             params:
               {
                 rankType: _this.type,
@@ -456,7 +453,7 @@
             _this.message10 = 1
           }
           //发送请求获取到author
-          _this.$axios.get('http://47.100.55.51:3180/rank/getAuthorRank', {
+          _this.$axios.get('http://159.75.17.236:3180/rank/getAuthorRank', {
             params:
               {
                 rankType: _this.type,
@@ -487,7 +484,7 @@
             _this.message13 = 1
           }
           //发送请求获取到keyword
-          _this.$axios.get('http://47.100.55.51:3180/rank/getKeywordRank', {
+          _this.$axios.get('http://159.75.17.236:3180/rank/getKeywordRank', {
             params:
               {
                 rankType: _this.type,//type 对应相应到ranktype直接赋值了

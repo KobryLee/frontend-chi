@@ -87,7 +87,7 @@
           })
           return false
         }
-        this.$axios.post('http://47.100.55.51:3180/user/login', {
+        this.$axios.post('http://159.75.17.236:3180/user/login', {
           userName: _this.userName,
           password: _this.password,
           time: _this.timeStamp
@@ -97,7 +97,7 @@
             localStorage.setItem('userId', response.data.data)
             localStorage.setItem('userName', _this.userName)
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'success',
               title: 'Welcome, ' + _this.userName + ' !'
             })
@@ -105,14 +105,14 @@
           } else {
             const wrongMsg = response.data.status.msg
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'warning',
               title: wrongMsg
             })
           }
         }).catch(function (error) {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'danger',
             title: 'Fail to login!'
           })

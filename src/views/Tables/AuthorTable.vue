@@ -79,7 +79,7 @@
     },
     mounted () {
       let _this = this
-      this.$axios.post('http://47.100.55.51:3180/user/getSavedEntityByType', {
+      this.$axios.post('http://159.75.17.236:3180/user/getSavedEntityByType', {
         userId: localStorage.getItem('userId'),
         entityType: 0
       }).then(function (response) {
@@ -92,7 +92,7 @@
     methods: {
       addAuthorInfo (authorId) {
         const _this = this
-        this.$axios.get('http://47.100.55.51:3180/entity/authorPortrait', {
+        this.$axios.get('http://159.75.17.236:3180/entity/authorPortrait', {
           params: {
             authorId: authorId
           }
@@ -137,7 +137,7 @@
           entityType: 0,
           entityId: authorId
         }
-        this.$axios.post('http://47.100.55.51:3180/user/delSavedEntityByType', entityInfo).then(function (response) {
+        this.$axios.post('http://159.75.17.236:3180/user/delSavedEntityByType', entityInfo).then(function (response) {
           const statusCode = response.data.status.code
           if (statusCode === '0000') {
             _this.$notify({

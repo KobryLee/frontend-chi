@@ -217,7 +217,7 @@
        changestate(){
         if(this.switches==true){
           this.switches=false;
-           this.$axios.post('http://47.100.55.51:3180/user/delSavedEntityByType',
+           this.$axios.post('http://159.75.17.236:3180/user/delSavedEntityByType',
           {
                "userId":this.userId,
                "entityType":"3",
@@ -231,7 +231,7 @@
         }
         else if(this.switches==false){
           this.switches=true;
-           this.$axios.post('http://47.100.55.51:3180/user/saveEntity',
+           this.$axios.post('http://159.75.17.236:3180/user/saveEntity',
           {
                "userId":this.userId,
                "entityType":"3",
@@ -270,7 +270,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://47.100.55.51:3180/chart/refPerYearBykeyword', {
+        this.$axios.get('http://159.75.17.236:3180/chart/refPerYearBykeyword', {
           params: {
             keywordId: authorid
           }
@@ -336,7 +336,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://47.100.55.51:3180/chart/articlePerYearByKeyword', {
+        this.$axios.get('http://159.75.17.236:3180/chart/articlePerYearByKeyword', {
           params: {
             keywordId: authorid
           }
@@ -405,7 +405,7 @@
           entityId: keywordId,
           time: new Date().getTime()
         }
-        this.$axios.post('http://47.100.55.51:3180/user/addHistory', entityInfo).then(function (response) {
+        this.$axios.post('http://159.75.17.236:3180/user/addHistory', entityInfo).then(function (response) {
         }).catch(function (error) {
           _this.$notify({
             type: 'danger',
@@ -421,7 +421,7 @@
       _this.userId=localStorage.getItem('userId');
       this.addViewHistory(id)
 
-      this.$axios.post('http://47.100.55.51:3180/user/isEntityStar',
+      this.$axios.post('http://159.75.17.236:3180/user/isEntityStar',
           {
                "userId":this.userId,
                "entityType":"3",
@@ -441,7 +441,7 @@
           console.log(error);
         })
 
-      this.$axios.get('http://47.100.55.51:3180/entity/keywordPortrait', {
+      this.$axios.get('http://159.75.17.236:3180/entity/keywordPortrait', {
         params: {
           keywordId: id
         }
@@ -457,7 +457,7 @@
         console.log('获得作者画像失败！')
         console.log(error)
       })
-      this.$axios.get('http://47.100.55.51:3180/entity/articleListByKeyword', {
+      this.$axios.get('http://159.75.17.236:3180/entity/articleListByKeyword', {
         params: {
           keywordId: id
         }
@@ -476,7 +476,7 @@
         console.log('获得作者画像失败！')
         console.log(error)
       })
-      this.$axios.get('http://47.100.55.51:3180/rank/topAffiliationByKeyword', {
+      this.$axios.get('http://159.75.17.236:3180/rank/topAffiliationByKeyword', {
         params: {
           keywordId: id
         }
@@ -493,7 +493,7 @@
         console.log('获得作者画像失败！')
         console.log(error)
       })
-      this.$axios.get('http://47.100.55.51:3180/rank/topAuthorByKeyword', {
+      this.$axios.get('http://159.75.17.236:3180/rank/topAuthorByKeyword', {
         params: {
           keywordId: id
         }

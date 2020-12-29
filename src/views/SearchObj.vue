@@ -442,23 +442,23 @@
     },
     mounted () {
       var _this = this
-      this.$axios.get('http://47.100.55.51:3180/rank/topKeywordByActivation').then(function (response) {
+      this.$axios.get('http://159.75.17.236:3180/rank/topKeywordByActivation').then(function (response) {
         // console.log(response.data.data);//这一步可执行
         _this.topKeywordsA = response.data.data// 这一步报错说undefined
         console.log('getKeywordByActivation成功！')
         console.log(_this.topKeywordsA)
       })
-      this.$axios.get('http://47.100.55.51:3180/rank/topAffiliationByActivation').then(function (response) {
+      this.$axios.get('http://159.75.17.236:3180/rank/topAffiliationByActivation').then(function (response) {
         _this.topaffiliationA = response.data.data
         // console.log("gettopaffiliationA成功！");
         // console.log(_this.topaffiliationA);
       })
-      this.$axios.get('http://47.100.55.51:3180/rank/topAuthorByActivation').then(function (response) {
+      this.$axios.get('http://159.75.17.236:3180/rank/topAuthorByActivation').then(function (response) {
         _this.topAuthorsA = response.data.data
         // console.log("topAuthorsA成功！");
         // console.log(_this.topAuthorsA);
       })
-      this.$axios.get('http://47.100.55.51:3180/rank/topReference').then(function (response) {
+      this.$axios.get('http://159.75.17.236:3180/rank/topReference').then(function (response) {
         _this.toprefs = response.data.data
         // console.log("toprefs成功！");
         // console.log(_this.toprefs);
@@ -518,7 +518,7 @@
         _this.loading = true
         if (objT == 1) {
           this.searchAuthor = true
-          this.$axios.get('http://47.100.55.51:3180/entity/searchAuthor', {
+          this.$axios.get('http://159.75.17.236:3180/entity/searchAuthor', {
             params: {
               authorName: objN
             }
@@ -528,7 +528,7 @@
           })
         } else if (objT == 2) {
           this.searchAffili = true
-          this.$axios.get('http://47.100.55.51:3180/entity/searchAffiliation', {
+          this.$axios.get('http://159.75.17.236:3180/entity/searchAffiliation', {
             params: {
               affiliationName: objN
             }
@@ -550,7 +550,7 @@
           }
         } else if (objT == 4) {
           this.searchKeyWs = true
-          this.$axios.get('http://47.100.55.51:3180/entity/searchKeyword', {
+          this.$axios.get('http://159.75.17.236:3180/entity/searchKeyword', {
             params: {
               keyword: objN
             }

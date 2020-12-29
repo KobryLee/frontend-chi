@@ -82,7 +82,7 @@
 
       mounted(){
         var _this=this;
-        this.$axios.get('http://47.100.55.51:3180/rank/topKeywordAnalysis',{
+        this.$axios.get('http://159.75.17.236:3180/rank/topKeywordAnalysis',{
 
         }).then(function (response) {
           console.log(response.data.data);

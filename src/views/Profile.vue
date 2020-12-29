@@ -205,7 +205,7 @@
     },
     mounted () {
       const _this = this
-      this.$axios.get('http://159.75.17.236:3180/user/getProfile', {
+      this.$axios.get('http://47.100.55.51:3180/user/getProfile', {
         params: {
           userId: localStorage.getItem('userId')
         }
@@ -224,7 +224,7 @@
         })
       })
 
-      this.$axios.get('http://159.75.17.236:3180/user/getInterestByHistory', {
+      this.$axios.get('http://47.100.55.51:3180/user/getInterestByHistory', {
         params: {
           userId: localStorage.getItem('userId')
         }
@@ -284,7 +284,7 @@
           })
           return
         }
-        this.$axios.post('http://159.75.17.236:3180/user/editProfile', _this.userData).then(function (response) {
+        this.$axios.post('http://47.100.55.51:3180/user/editProfile', _this.userData).then(function (response) {
           const statusCode = response.data.status.code
           if (statusCode === '0000') {
             _this.$notify({

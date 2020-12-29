@@ -127,7 +127,7 @@
 
 
       _this.userId=localStorage.getItem('userId')
-      this.$axios.get('http://159.75.17.236:3180/entity/publicationPortrait', {
+      this.$axios.get('http://47.100.55.51:3180/entity/publicationPortrait', {
         params: {
           publicationTitle: id
         }
@@ -151,7 +151,7 @@
         _this.id=1
       }
 
-      this.$axios.post('http://159.75.17.236:3180/user/isEntityStar',
+      this.$axios.post('http://47.100.55.51:3180/user/isEntityStar',
           {
                "userId":this.userId,
                "entityType":"2",
@@ -180,7 +180,7 @@
              changestate(){
         if(this.switches==true){
           this.switches=false;
-           this.$axios.post('http://159.75.17.236:3180/user/delSavedEntityByType',
+           this.$axios.post('http://47.100.55.51:3180/user/delSavedEntityByType',
           {
                "userId":this.userId,
                "entityType":"3",
@@ -194,7 +194,7 @@
         }
         else if(this.switches==false){
           this.switches=true;
-           this.$axios.post('http://159.75.17.236:3180/user/saveEntity',
+           this.$axios.post('http://47.100.55.51:3180/user/saveEntity',
           {
                "userId":this.userId,
                "entityType":"2",
@@ -213,7 +213,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://159.75.17.236:3180/chart/hindexPerYearByPublication', {
+        this.$axios.get('http://47.100.55.51:3180/chart/hindexPerYearByPublication', {
           params: {
             publicationTitle: id
           }
@@ -267,7 +267,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://159.75.17.236:3180/chart/articlePerYearByPublication', {
+        this.$axios.get('http://47.100.55.51:3180/chart/articlePerYearByPublication', {
           params: {
             publicationTitle: id
           }
@@ -321,7 +321,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://159.75.17.236:3180/chart/referencePerYearByPublication', {
+        this.$axios.get('http://47.100.55.51:3180/chart/referencePerYearByPublication', {
           params: {
             publicationTitle: id
           }
@@ -389,7 +389,7 @@
           entityId: publicationId,
           time: new Date().getTime()
         }
-        this.$axios.post('http://159.75.17.236:3180/user/addHistory', entityInfo).then(function (response) {
+        this.$axios.post('http://47.100.55.51:3180/user/addHistory', entityInfo).then(function (response) {
         }).catch(function (error) {
           _this.$notify({
             type: 'danger',

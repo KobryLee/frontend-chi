@@ -178,7 +178,7 @@ export default {
         $.ajax({
           type: "get",
           async: false,
-          url: "http://159.75.17.236:3180/chart/linkedDataByAuthor",
+          url: "http://47.100.55.51:3180/chart/linkedDataByAuthor",
           data: {
             authorId: tid
           },
@@ -204,7 +204,7 @@ export default {
         $.ajax({
           type: "get",
           async: false,
-          url: "http://159.75.17.236:3180/chart/totalAuthorLinkedData",
+          url: "http://47.100.55.51:3180/chart/totalAuthorLinkedData",
           success: function (response) {
             console.log("responseNodes:", response);
             _this.relationNodes = response.data.nodes;
@@ -242,7 +242,7 @@ export default {
     querySearchAsync1:function(queryString, callback) {
           var list = [{}];
           var that = this;
-          this.$axios.get('http://159.75.17.236:3180/utils/getPredictUser',{
+          this.$axios.get('http://47.100.55.51:3180/utils/getPredictUser',{
             params: {
               authorName:that.fromAuthor
             }
@@ -261,7 +261,7 @@ export default {
         querySearchAsync2:function(queryString, callback) {
           var list = [{}];
           var that = this;
-          this.$axios.get('http://159.75.17.236:3180/utils/getPredictUser',{
+          this.$axios.get('http://47.100.55.51:3180/utils/getPredictUser',{
             params: {
               authorName:that.toAuthor
             }
@@ -289,7 +289,7 @@ export default {
     $.ajax({
           type: "get",
           async: false,
-          url: "http://159.75.17.236:3180/chart/linkedDataByAuthor",
+          url: "http://47.100.55.51:3180/chart/linkedDataByAuthor",
           data: {
             authorId: startid
           },

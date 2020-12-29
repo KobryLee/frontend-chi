@@ -65,7 +65,7 @@
         }
         let options = {
           clearForm: true,
-          url: 'http://159.75.17.236:3180/upload/csvFile',
+          url: 'http://47.100.55.51:3180/upload/csvFile',
           success: function (res) {
             const statusCode = res.status.code
             if (statusCode === '0000') {

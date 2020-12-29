@@ -78,7 +78,7 @@
         let len = userName.length
         if (len === 0) {
           this.$notify({
-            position: 'top-right',
+            position: 'bottom-right',
             type: 'warning',
             title: 'Input Error',
             message: 'UserName should not be empty!',
@@ -87,7 +87,7 @@
           return false
         } else if (len < min || max < len) {
           this.$notify({
-            position: 'top-right',
+            position: 'bottom-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Length to be between ' + min + ' to ' + max + '.',
@@ -104,7 +104,7 @@
           return true
         } else {
           this.$notify({
-            position: 'top-right',
+            position: 'bottom-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Entered an invalid email!',
@@ -117,7 +117,7 @@
         const min = 8, max = 20
         if (password == null || password === '') {
           this.$notify({
-            position: 'top-right',
+            position: 'bottom-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Password is required!',
@@ -126,7 +126,7 @@
           return false
         } else if (password.length < min || max < password.length) {
           this.$notify({
-            position: 'top-right',
+            position: 'bottom-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Length to be between ' + min + ' to ' + max + '.',
@@ -140,7 +140,7 @@
       register: function () {
         if (this.checkUserName(this.userName) && this.checkEmail(this.email) && this.checkPassword(this.password)) {
           const _this = this
-          this.$axios.post('http://159.75.17.236:3180/user/register', {
+          this.$axios.post('http://47.100.55.51:3180/user/register', {
             userName: this.userName,
             password: this.password,
             email: this.email,
@@ -149,24 +149,22 @@
             const statusCode = response.data.status.code
             if (statusCode === '0000') {
               _this.$notify({
-                position: 'top-right',
+                position: 'bottom-right',
                 type: 'success',
                 title: 'Succeed to register!'
               })
               _this.$router.push({ name: 'login' })
-              console.log(response.data)
-              localStorage.setItem('userId', response.data.data)
             } else {
               const wrongMsg = response.data.status.msg
               _this.$notify({
-                position: 'top-right',
+                position: 'bottom-right',
                 type: 'warning',
                 title: wrongMsg
               })
             }
           }).catch(function (error) {
             _this.$notify({
-              position: 'top-right',
+              position: 'bottom-right',
               type: 'danger',
               title: 'Fail to register!'
             })

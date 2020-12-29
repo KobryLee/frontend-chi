@@ -149,7 +149,7 @@
       _this.id=id
       _this.userId=localStorage.getItem('userId');
       this.addViewHistory(id)
-      this.$axios.post('http://159.75.17.236:3180/user/isEntityStar',
+      this.$axios.post('http://47.100.55.51:3180/user/isEntityStar',
           {
                "userId":this.userId,
                "entityType":"1",
@@ -168,7 +168,7 @@
           console.log("获得相关收藏失败！");
           console.log(error);
         })
-      this.$axios.get('http://159.75.17.236:3180/entity/affiliationPortrait', {
+      this.$axios.get('http://47.100.55.51:3180/entity/affiliationPortrait', {
         params: {
           affiliationId: id
         }
@@ -184,7 +184,7 @@
         console.log('获得机构画像失败！')
         console.log(error)
       })
-      this.$axios.get('http://159.75.17.236:3180/entity/getSubAuthorsByAffiliation', {
+      this.$axios.get('http://47.100.55.51:3180/entity/getSubAuthorsByAffiliation', {
         params: {
           affiliationId: id
         }
@@ -205,7 +205,7 @@
       changestate(){
         if(this.switches==true){
           this.switches=false;
-           this.$axios.post('http://159.75.17.236:3180/user/delSavedEntityByType',
+           this.$axios.post('http://47.100.55.51:3180/user/delSavedEntityByType',
           {
                "userId":this.userId,
                "entityType":"1",
@@ -219,7 +219,7 @@
         }
         else if(this.switches==false){
           this.switches=true;
-           this.$axios.post('http://159.75.17.236:3180/user/saveEntity',
+           this.$axios.post('http://47.100.55.51:3180/user/saveEntity',
           {
                "userId":this.userId,
                "entityType":"1",
@@ -242,7 +242,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://159.75.17.236:3180/chart/hindexPerYearByAffiliation', {
+        this.$axios.get('http://47.100.55.51:3180/chart/hindexPerYearByAffiliation', {
           params: {
             affiliationId: id
           }
@@ -296,7 +296,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://159.75.17.236:3180/chart/articlePerYearByAffiliation', {
+        this.$axios.get('http://47.100.55.51:3180/chart/articlePerYearByAffiliation', {
           params: {
             affiliationId: id
           }
@@ -353,7 +353,7 @@
         let x = []
         let y = []
 
-        this.$axios.get('http://159.75.17.236:3180/chart/keywordDistribution', {
+        this.$axios.get('http://47.100.55.51:3180/chart/keywordDistribution', {
           params: {
             affiliationId: id
           }
@@ -405,7 +405,7 @@
           entityId: affiliationId,
           time: new Date().getTime()
         }
-        this.$axios.post('http://159.75.17.236:3180/user/addHistory', entityInfo).then(function (response) {
+        this.$axios.post('http://47.100.55.51:3180/user/addHistory', entityInfo).then(function (response) {
         }).catch(function (error) {
           _this.$notify({
             type: 'danger',

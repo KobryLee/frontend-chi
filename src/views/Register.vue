@@ -155,7 +155,8 @@
               })
               _this.$router.push({ name: 'login' })
               console.log(response.data)
-              localStorage.setItem('userId', response.data.data)
+              localStorage.setItem('userId', response.data.data.uesrId)
+              localStorage.setItem('userName', response.data.data.userName)
             } else {
               const wrongMsg = response.data.status.msg
               _this.$notify({

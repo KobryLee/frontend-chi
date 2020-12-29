@@ -60,7 +60,7 @@
     },
     mounted () {
       const _this = this
-      this.$axios.get('http://47.100.55.51:3180/user/getHistory', {
+      this.$axios.get('http://159.75.17.236:3180/user/getHistory', {
         params: {
           userId: localStorage.getItem('userId')
         }

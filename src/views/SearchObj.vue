@@ -541,7 +541,7 @@
             _this.sear = false
             _this.loading = false
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'warning',
               title: 'Only support ASE and ICSE!'
             })

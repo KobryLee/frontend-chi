@@ -115,7 +115,7 @@
           } else {
             const wrongMsg = response.data.status.msg
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'danger',
               title: wrongMsg
             })
@@ -151,7 +151,7 @@
           const statusCode = response.data.status.code
           if (statusCode === '0000') {
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'success',
               title: 'Succeed to Cancel!'
             })
@@ -159,14 +159,14 @@
           } else {
             const wrongMsg = response.data.status.msg
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'danger',
               title: wrongMsg
             })
           }
         }).catch(function (error) {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'danger',
             title: 'Fail to cancel!'
           })

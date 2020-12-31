@@ -218,7 +218,7 @@
         }
       }).catch(function (error) {
         _this.$notify({
-          position: 'bottom-right',
+          position: 'top-right',
           type: 'danger',
           title: error
         })
@@ -238,7 +238,7 @@
         }
       }).catch(function (error) {
         _this.$notify({
-          position: 'bottom-right',
+          position: 'top-right',
           type: 'danger',
           title: 'Fail to get Recommended Authors!'
         })
@@ -255,14 +255,14 @@
         //表单验证
         if (_this.userData.email.trim() == '') {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Email is not allowed to be null!'
           })
           return
         } else if (_this.userData.email.indexOf('@') == -1) {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input a valid email format!'
           })
@@ -270,7 +270,7 @@
         }
         if (_this.userData.phone.trim() == '') {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input a valid phone format!'
           })
@@ -278,7 +278,7 @@
         }
         if (isNaN(_this.userData.phone)) {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input a valid phone format!'
           })
@@ -288,7 +288,7 @@
           const statusCode = response.data.status.code
           if (statusCode === '0000') {
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'success',
               title: 'Succeed to edit profile!'
             })
@@ -296,14 +296,14 @@
           } else {
             const wrongMsg = response.data.status.msg
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'warning',
               title: wrongMsg
             })
           }
         }).catch(function (error) {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'danger',
             title: error
           })

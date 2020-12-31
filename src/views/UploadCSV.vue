@@ -57,7 +57,7 @@
         const _this = this
         if ($('#uploadCSV input').val() === '') {
           _this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Select the file to upload!'
           })
@@ -70,13 +70,13 @@
             const statusCode = res.status.code
             if (statusCode === '0000') {
               _this.$notify({
-                position: 'bottom-right',
+                position: 'top-right',
                 type: 'success',
                 title: res.status.msg
               })
             } else {
               _this.$notify({
-                position: 'bottom-right',
+                position: 'top-right',
                 type: 'warning',
                 title: res.status.msg
               })
@@ -84,7 +84,7 @@
           },
           error: function (err) {
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'danger',
               title: 'Fail to upload!'
             })

@@ -69,7 +69,7 @@
         const _this = this
         if (this.userName === '') {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'UserName should not be empty!',
@@ -79,7 +79,7 @@
         }
         if (this.password === '') {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Password is required!',

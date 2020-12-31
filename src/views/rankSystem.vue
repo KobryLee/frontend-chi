@@ -86,13 +86,13 @@
       </div>-->
       <li class="ranking-highest__item ranking-highest__item--big" v-if="podium[0]">
         <div class="ranking-highest__rank">1</div>
-        <img src="../assets/img/active.png" class="ranking-highest__image">
+        <img src="../assets/img/active.png" class="ranking-highest__image1">
         <a @click="jumpto(podium[0].id)" class="ranking-highest__name--small">{{podium[0].name}}</a>
         <div class="ranknumbox2">🔥{{podium[0].rank}}</div>
         <div class="ranking-highest__parameter">
-          <div class="ranking-highest__heat">PAPER:   24</div>
-          <div class="ranking-highest__heat">AUTHOR:   20</div>
-          <div class="ranking-highest__heat">CITATION:   846</div>
+          <div class="ranking-highest__heat">PAPER:   10</div>
+          <div class="ranking-highest__heat">AUTHOR:   22</div>
+          <div class="ranking-highest__heat">CITATION:   453</div>
         </div>
       </li>
       <div>
@@ -100,9 +100,9 @@
           <div class="ranking-highest__rank">2</div>
           <a @click="jumpto(podium[1].id)" class="ranking-highest__name--small">{{podium[1].name}}</a>
           <div class="ranknumbox2">🔥{{podium[1].rank}}</div>
-          <div class="ranking-highest__heat--small">PAPER:   61</div>
-          <div class="ranking-highest__heat--small">AUTHOR:   46</div>
-          <div class="ranking-highest__heat--small">CITATION:   1764</div>
+          <div class="ranking-highest__heat--small">PAPER:   12</div>
+          <div class="ranking-highest__heat--small">AUTHOR:   18</div>
+          <div class="ranking-highest__heat--small">CITATION:   568</div>
           <div class="ranking-highest__parameter--small">
 
           </div>
@@ -111,9 +111,9 @@
           <div class="ranking-highest__rank">3</div>
           <a @click="jumpto(podium[2].id)" class="ranking-highest__name--small">{{podium[2].name}}</a>
           <div class="ranknumbox2">🔥{{podium[2].rank}}</div>
-          <div class="ranking-highest__heat--small">PAPER:   78</div>
-          <div class="ranking-highest__heat--small">AUTHOR:   70</div>
-          <div class="ranking-highest__heat--small">CITATION:   2545</div>
+          <div class="ranking-highest__heat--small">PAPER:   10</div>
+          <div class="ranking-highest__heat--small">AUTHOR:   29</div>
+          <div class="ranking-highest__heat--small">CITATION:   276</div>
           <div class="ranking-highest__parameter--small">
 
           </div>
@@ -710,10 +710,11 @@
     color: #fff;
   }
 
-  .ranking-highest__image {
+  .ranking-highest__image1 {
     display: inline-block;
     width: 120px;
     height: 120px;
+    margin-top: -80px;
     border-radius: 50%;
   }
 

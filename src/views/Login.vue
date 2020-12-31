@@ -97,7 +97,7 @@
             localStorage.setItem('userId', response.data.data)
             localStorage.setItem('userName', _this.userName)
             _this.$notify({
-              position: 'top-right',
+              position: 'bottom-right',
               type: 'success',
               title: 'Welcome, ' + _this.userName + ' !'
             })
@@ -105,14 +105,14 @@
           } else {
             const wrongMsg = response.data.status.msg
             _this.$notify({
-              position: 'top-right',
+              position: 'bottom-right',
               type: 'warning',
               title: wrongMsg
             })
           }
         }).catch(function (error) {
           _this.$notify({
-            position: 'top-right',
+            position: 'bottom-right',
             type: 'danger',
             title: 'Fail to login!'
           })

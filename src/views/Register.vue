@@ -78,7 +78,7 @@
         let len = userName.length
         if (len === 0) {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'UserName should not be empty!',
@@ -87,7 +87,7 @@
           return false
         } else if (len < min || max < len) {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Length to be between ' + min + ' to ' + max + '.',
@@ -104,7 +104,7 @@
           return true
         } else {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Entered an invalid email!',
@@ -117,7 +117,7 @@
         const min = 8, max = 20
         if (password == null || password === '') {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Password is required!',
@@ -126,7 +126,7 @@
           return false
         } else if (password.length < min || max < password.length) {
           this.$notify({
-            position: 'bottom-right',
+            position: 'top-right',
             type: 'warning',
             title: 'Input Error',
             message: 'Length to be between ' + min + ' to ' + max + '.',
@@ -147,27 +147,27 @@
             profession: ''
           }).then(function (response) {
             const statusCode = response.data.status.code
-            if (statusCode === '0000') {
+            if (statusCode == '0000') {
               _this.$notify({
-                position: 'bottom-right',
+                position: 'top-right',
                 type: 'success',
                 title: 'Succeed to register!'
               })
-              _this.$router.push({ name: 'login' })
-              console.log(response.data)
-              localStorage.setItem('userId', response.data.data.uesrId)
+              console.log('response.data 注册验证',response.data)
+              localStorage.setItem('userId', response.data.data.userId)
               localStorage.setItem('userName', response.data.data.userName)
+              _this.$router.push({ name: 'login' })
             } else {
               const wrongMsg = response.data.status.msg
               _this.$notify({
-                position: 'bottom-right',
+                position: 'top-right',
                 type: 'warning',
                 title: wrongMsg
               })
             }
           }).catch(function (error) {
             _this.$notify({
-              position: 'bottom-right',
+              position: 'top-right',
               type: 'danger',
               title: 'Fail to register!'
             })

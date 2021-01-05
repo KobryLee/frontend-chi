@@ -15,14 +15,6 @@
             <el-button slot="append" icon="fa fa-search" style="background-color: #0e0e0e;width: 70px"
                        @click="searchObj"></el-button>
           </el-input>
-          <div style="height: 20px"></div>
-          <div>
-            <center>
-              <el-button slot="append" icon="fa fa-search" style="background-color: #0e0e0e;width: 170px"
-                         @click="searchPaper">Search Paper</el-button>
-
-            </center>
-          </div>
           <div class="abstractShow">
             <el-row style="text-align: center">
               <el-col :span="1" style="margin-left: 13%">
@@ -501,9 +493,6 @@
       },
       searchAffiHuaR: function (id) {
         this.$router.push('/afflication/' + id)
-      },
-      searchPaper: function () {
-        this.$router.push('/searchPaper')
       },
       searchkKHua: function (id) {
         console.log('in!!id:::', id)

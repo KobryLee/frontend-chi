@@ -253,6 +253,7 @@
           console.log(x)
           y = response.data.data.hindexList
           console.log('成功获得引用！')
+
           let option = {
             title: {
               text: 'H-index amount statics'
@@ -358,18 +359,42 @@
             affiliationId: id
           }
         }).then(function (response) {
-          console.log(response.data.data)
+          console.log('didididi',response.data.data)
           var mychart3 = echarts.init(document.getElementById('chart3'))
           var len = response.data.data.keywordList.length
           var keywords = new Array()
           console.log(len)
-          for (var i = 0; i < len; i++) {
-            console.log(response.data.data.keywordList[i])
-            keywords.push({ 'value': response.data.data.articleNumList[i], 'name': response.data.data.keywordList[i] })
+          // for (var i = 0; i < len; i++) {
+          //   console.log(response.data.data.keywordList[i])
+          //   keywords.push({ 'value': response.data.data.articleNumList[i], 'name': response.data.data.keywordList[i] })
 
-          }
+          // }
           console.log(keywords)
           //console.log("成功获得引用！");
+          // let startPosition=0;
+          // for(let i = 0;i<x.length;i++){
+          //   if(y[i]==0){
+          //     startPosition++;
+          //   }else{
+          //     break;
+          //   }
+          // }
+          // x=x.slice(startPosition,x.length-1);
+          // y=y.slice(startPosition,y.length-1);
+                    let otherNum=0;
+          for (var i = 0; i < len; i++) {
+            if(response.data.data.articleNumList[i]<=1){
+              continue;
+            }
+            if(response.data.data.articleNumList[i]<=3){
+              otherNum+=response.data.data.articleNumList[i];
+              continue;
+            }else{
+            keywords.push({ 'value': response.data.data.articleNumList[i], 'name': response.data.data.keywordList[i] })
+            }
+          }
+          keywords.push({ 'value': otherNum, 'name': 'others'})
+          console.log('keywords',keywords)
           let option = {
             title: {
               text: 'research keywords'
